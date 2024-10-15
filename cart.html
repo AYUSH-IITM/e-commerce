@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .item {
+        color: orange;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>My E-Commerce Site </h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" onclick="showCart()">Cart (<span id="cartCount">0</span>)</a></li>
+            </ul>
+        </nav>
+        <div class="item">
+            <h2>Your Cart Items</h2>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart" id="cart">
+            <div id="cartItems"></div>
+            <button onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce Site</p>
+    </footer>
+
+    <script>
+        // Load cart count and items from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartCount').innerText = cartCount;
+
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsDiv = document.getElementById('cartItems');
+
+            if (cartItems.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartItems.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                    cartItemsDiv.appendChild(itemDiv);
+                });
+            }
+        });
+
+        function checkout() {
+            alert('Proceeding to checkout...');
+            // Implement checkout logic here
+        }
+    </script>
+</body>
+
+</html>

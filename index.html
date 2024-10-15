@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>My E-Commerce Site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="new.html">Products</a></li>
+                <li><a href="cart.html" onclick="showCart()">Cart (<span id="cartCount">0</span>)</a></li>
+            </ul>
+        </nav>
+        <input type="text" id="search" placeholder="Search for products..." onkeyup="searchProducts()">
+
+    </header>
+
+    <main>
+
+        <section class="products" id="productList">
+            <div class="product" data-name="Iphone 16 pro max">
+                <img src="img/iphone16pro.jpg" alt="Iphone 16 pro max">
+                <h2>Iphone 16 pro max</h2>
+                <p>₹1,40,000</p>
+                <button onclick="addToCart('Iphone 16 pro max', 140000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 16 pro">
+                <img src="img/iphone16pro.jpg" alt="Iphone 16 pro">
+                <h2>Iphone 16 pro</h2>
+                <p>₹1,20,000</p>
+                <button onclick="addToCart('Iphone 16 pro', 120000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 16">
+                <img src="img/iphone16.JPG" alt="Iphone 16">
+                <h2>Iphone 16</h2>
+                <p>₹1,00,000</p>
+                <button onclick="addToCart('Iphone 16', 100000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 15 pro max">
+                <img src="img/iphone15proMax.JPG" alt="Iphone 15 pro max">
+                <h2>Iphone 15 pro max</h2>
+                <p>₹1,10,000</p>
+                <button onclick="addToCart('Iphone 15 pro max', 110000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 15 pro">
+                <img src="img/iphone15pro.JPG" alt="Iphone 15 pro">
+                <h2>Iphone 15 pro</h2>
+                <p>₹1,00,000</p>
+                <button onclick="addToCart('Iphone 15 pro', 100000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 15">
+                <img src="img/iphone15.JPG" alt="Iphone 15">
+                <h2>Iphone 15</h2>
+                <p>₹90,000</p>
+                <button onclick="addToCart('Iphone 15', 90000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 14 pro max">
+                <img src="img/iphone14proMax.PNG" alt="Iphone 14 pro max">
+                <h2>Iphone 14 pro max</h2>
+                <p>₹1,10,000</p>
+                <button onclick="addToCart('Iphone 14 pro max', 110000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 14 pro">
+                <img src="img/iphone14pro.PNG" alt="Iphone 14 pro">
+                <h2>Iphone 14 pro</h2>
+                <p>₹1,00,000</p>
+                <button onclick="addToCart('Iphone 14 pro', 100000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 14">
+                <img src="img/iphone14.PNG" alt="Iphone 14">
+                <h2>Iphone 14</h2>
+                <p>₹90,000</p>
+                <button onclick="addToCart('Iphone 14', 90000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 13 pro max">
+                <img src="img/iphone13proMax.PNG" alt="Iphone 13 pro max">
+                <h2>Iphone 13 pro max</h2>
+                <p>₹80,000</p>
+                <button onclick="addToCart('Iphone 13 pro max', 80000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 13 pro">
+                <img src="img/iphone13pro.PNG" alt="Iphone 13 pro">
+                <h2>Iphone 13 pro</h2>
+                <p>₹70,000</p>
+                <button onclick="addToCart('Iphone 13 pro', 70000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 13">
+                <img src="img/iphone13.PNG" alt="Iphone 13">
+                <h2>Iphone 13</h2>
+                <p>₹60,000</p>
+                <button onclick="addToCart('Iphone 13', 60000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 12 pro max">
+                <img src="img/iphone12pro.JPG" alt="Iphone 12 pro max">
+                <h2>Iphone 12 pro max</h2>
+                <p>₹70,000</p>
+                <button onclick="addToCart('Iphone 12 pro max', 70000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 12 pro">
+                <img src="img/iphone12pro.JPG" alt="Iphone 12 pro">
+                <h2>Iphone 12 pro</h2>
+                <p>₹65,000</p>
+                <button onclick="addToCart('Iphone 12 pro', 65000)">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Iphone 12">
+                <img src="img/iphone12.JPG" alt="Iphone 12">
+                <h2>Iphone 12</h2>
+                <p>₹60,000</p>
+                <button onclick="addToCart('Iphone 12', 60000)">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce Site</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
